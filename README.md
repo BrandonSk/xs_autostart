@@ -19,10 +19,10 @@ There is **1 important caviat:**
 Your machine name cannot contain two consecutive # characters (e.g. VM Name: My pretty Debian VM ##1). Script will not autostart such machines, as ## gets replaced with space.
 
 _Example:
-Following will start VM2 first, wait 2 minutes and then start VM1. VM3 is not autostarted.
+Following will start VM2 first, wait 2 minutes and then start VM1. VM3 is not autostarted._
 - VM1: `bs_autostart=1 bs_autostart_group=20 bs_autostart_timeout=0`
 - VM2: `bs_autostart=1 bs_autostart_group=10 bs_autostart_timeout=120`
-- VM3: `bs_autostart=0 bs_autostart_group=10 bs_autostart_timeout=30`_
+- VM3: `bs_autostart=0 bs_autostart_group=10 bs_autostart_timeout=30`
 
 ### Installation:
 In order to make it functional, you need to make these five easy steps:
