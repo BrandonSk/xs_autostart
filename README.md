@@ -2,7 +2,7 @@
 Bash script for autostarting Virtual Machines on XenServer
 
 <h3>Motivation:</h3>
-...well, I don't know about you. My experience (and from reading posts it is experience of many others too) is that XenServer doesn't make it easy for a small home users to automate (and control for that matter) start of their VMs. If you do not run HA cluster, just a single server, you are pretty much stuck (with some CLI workarounds possible - in fact I managed to have one of my VMs starting automatically upon boot).<br>
+...well, I don't know about you. My experience (and from reading posts it is experience of many others too) is that XenServer doesn't make it easy for a small home users to automate (and control for that matter) start of their VMs. If you do not run HA cluster, just a single server, you are pretty much stuck (with some CLI workarounds possible - in fact I managed to have one of my VMs starting automatically upon boot). Now you can use vApp for that, although I don't see a reason to create vApp instead of having simple start-up order. Anyway, I created my own solution and though I'd share it with you.<br>
 Also, my environment is a bit specific - I need one VM to start immediately after boot, which initializes ZFS residing on local disks and creates LUN storage. That LUN is used by XenServer itself (of course unavailable after boot), so I run another script to repair the storage after boot. Afterwards, I am ready to start my VMs one by one.
 
 <h3>How it works:</h3>
