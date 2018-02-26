@@ -6,7 +6,7 @@
 # Available at: https://github.com/BrandonSk/xs_autostart
 # Distributed under MIT license
 
-LF=/var/log/autostart.log
+LF=/var/log/xs_autostart.log
 [ -f "${LF}" ] && rm -f "${LF}"
 
 # Function to start VM
