@@ -9,14 +9,6 @@
 LF=/var/log/autostart.log
 [ -f "${LF}" ] && rm -f "${LF}"
 
-# Following will repair LUN storage repository provided by ZFS in one of the VMs
-# Script is run from rc.local few minutes after boot to allow VM to start
-echo "Repairing local ZFS storage repository..." >> "${LF}"
-xe pbd-plug uuid=1ab4b2a9-372e-902b-1c1f-45334176c7f6 2>&1 | tee -a "${LF}"
-
-# let SR to settle
-sleep 10
-
 # Function to start VM
 f_start_vm() {
 	# Starts xen VM and then waits specified time
