@@ -6,6 +6,8 @@
 # Available at: https://github.com/BrandonSk/xs_autostart
 # Distributed under MIT license
 
+[ "$1" = "-d" ] && DRY_RUN=1 || DRY_RUN=""
+
 LF=/var/log/xs_autostart.log
 [ -f "${LF}" ] && rm -f "${LF}"
 
@@ -20,12 +22,16 @@ f_start_vm() {
 	
 	[ "$#" -lt 5 ] && return
 
-	# We only attempt to start machines which are not running
-	if [ "${4}" != "running" ]; then
-		echo "Starting VM named '${5//\#\#/ }' at $(date)" >> "${LF}"
-		xe vm-start vm="${5//\#\#/ }" 2>&1 | tee -a "${LF}"
-		sleep $3
-	fi
+        # We only attempt to start machines which are not running
+        if [ "${4}" != "running" ]; then
+                echo "Starting VM named '${5//\#\#/ }' at $(date)" >> "${LF}"
+                if [ "${DRY_RUN}" != "1" ]; then
+                        xe vm-start vm="${5//\#\#/ }" 2>&1 | tee -a "${LF}"
+                        sleep $3
+                else
+                        echo "Starting VM named '${5//\#\#/ }' and then would sleep for $3 seconds."
+                fi
+        fi
 }
 
 VMlist="$(xe vm-list | grep uuid | awk -F': ' '{ print $2 }')"
