@@ -39,14 +39,21 @@ Your machine name cannot contain two consecutive # characters (e.g. VM Name: My 
 <h4>Reboot and enjoy.</h4>
 ...
 <h3>Additional info:</h3>
-- Machines with non-numeric or otherwise wrong data in custom fields are treated as follows:
-   - bs_autostart -> machine is not autostarted
-   - bs_autostart_group -> machine is not started
-   - bs_autostart_timeout -> timeout is set to 0 (zero)
-- Order of machines within a group is arbitrary. If you want a fine control, please use separate group for each VM (and I recommend leaving some gaps for future VMs in-between)
-- There is a DRY RUN command line option for testing purposes, so you can see order in which VMs get started and what is the delay after. Just invoke the script with -d option (<code>xs_autostart.sh -d</code>)
-- Script outputs some info into log file -> /var/log/xs_autostart.log
-   - you may change the location and file name at the very beginning of the script
-   - log gets overwritten each time script is run
+  <ul>
+    <li>Machines with non-numeric or otherwise wrong data in custom fields are treated as follows:
+      <ul>
+        <li>bs_autostart -> machine is not autostarted</li>
+        <li>bs_autostart_group -> machine is not started</li>
+        <li>bs_autostart_timeout -> timeout is set to 0 (zero)</li>
+      </ul></li>
+    <li>Order of machines within a group is arbitrary. If you want a fine control, please use separate group for each VM (and I recommend leaving some gaps for future VMs in-between)</li>
+    <li>There is a DRY RUN command line option for testing purposes, so you can see order in which VMs get started and what is the delay after. Just invoke the script with -d option (<code>xs_autostart.sh -d</code>)</li>
+    <li>Script outputs some info into log file -> /var/log/xs_autostart.log
+      <ul>
+        <li>you may change the location and file name at the very beginning of the script</li>
+        <li>log gets overwritten each time script is run</li>
+      </ul>
+    </li>
+  </ul>
    
 ENJOY IT!
